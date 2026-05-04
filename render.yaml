@@ -1,7 +1,7 @@
 services:
-  # Backend API
+  # Backend API (SQLite - no credit card needed)
   - type: web
-    name: dealership-backend
+    name: backend
     runtime: python
     rootDir: server
     buildCommand: |
@@ -16,19 +16,17 @@ services:
       - key: ALLOWED_HOSTS
         value: .onrender.com
       - key: CORS_ALLOWED_ORIGINS
-        value: https://${FRONTEND_URL}.onrender.com
-      - key: FRONTEND_URL
         value: dealership-frontend
+      - key: DATABASE_URL
+        value: sqlite:///db.sqlite3
 
   # Frontend
   - type: web
-    name: dealership-frontend
+    name: frontend
     runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     staticPublishPath: build
     envVars:
       - key: REACT_APP_API_URL
-        value: https://${BACKEND_URL}.onrender.com
-      - key: BACKEND_URL
         value: dealership-backend
