@@ -1,13 +1,34 @@
 services:
-  # Frontend - inside server/frontend
+  # Backend API - Django (server folder)
+  - type: web
+    name: car-dealership-backend
+    runtime: python
+    rootDir: server
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: gunicorn djangoproj.wsgi:application
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://car-dealership-frontend.onrender.com
+      - key: backend_url
+        value: https://car-dealership-backend.onrender.com
+      - key: DISABLE_COLLECTSTATIC
+        value: "1"
+
+  # Frontend - React (server/frontend folder)
   - type: static
     name: car-dealership-frontend
     rootDir: server/frontend
     buildCommand: npm install && npm run build
     staticPublishPath: build
     envVars:
+      - key: REACT_APP_API_URL
+        value: https://car-dealership-backend.onrender.com
       - key: CI
         value: false
-      - key: NODE_VERSION
-        value: 18
-
