@@ -6,7 +6,7 @@
   <br>
   
   <a href="https://youtu.be/XLBEDpPOCp4">
-    <b>▶️ Watch Demo Video (Click Here)</b>
+    <b> Watch Demo Video (Click Here)</b>
   </a>
 </div>
 
