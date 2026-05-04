@@ -19,11 +19,6 @@ Car Dealership Platform
 
 **Best Cars** is a full-stack car dealership web application that connects customers with trusted dealerships across North America. Users can browse dealerships, read customer reviews with sentiment analysis, register for accounts, and post their own reviews.
 
-Live Demo
-
- **Live Site:** [https://car-dealership-frontend.onrender.com](https://car-dealership-frontend.onrender.com)  
- **API Endpoint:** [https://car-dealership-backend.onrender.com](https://car-dealership-backend.onrender.com)
-
  Features
 
  User Features
