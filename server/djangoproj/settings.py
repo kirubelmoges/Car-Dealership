@@ -1,9 +1,11 @@
 import os
 from pathlib import Path
 
+# ========== RUN MIGRATIONS (Temporary) ==========
 if os.environ.get('RUN_MIGRATIONS') == 'true':
     os.system('python manage.py migrate')
     print("Migrations completed!")
+    # Don't exit - let the app continue
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,7 +14,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'  # Changed default to False
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,.onrender.com').split(',')
 
@@ -37,7 +39,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ ADDED for static files
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,11 +68,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoproj.wsgi.application'
 
-# ========== DATABASE - SQLite (Working!) ==========
+# ========== DATABASE - SQLite with Connection Optimization ==========
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'CONN_MAX_AGE': 0,  # Close connections after each request (saves memory)
+        'OPTIONS': {
+            'timeout': 20,  # Wait 20 seconds for locked database
+        },
     }
 }
 
@@ -97,7 +103,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-# ========== STATIC FILES (Fixed!) ==========
+# ========== STATIC FILES (Optimized for memory) ==========
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -137,3 +143,24 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+# ========== MEMORY OPTIMIZATIONS ==========
+# Use file-based sessions instead of database (saves memory)
+SESSION_ENGINE = 'django.contrib.sessions.backends.file'
+SESSION_FILE_PATH = '/tmp/django_sessions'
+
+# Disable unused features
+if not DEBUG:
+    # Reduce log level to save memory
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': True,
+    }
+    
+    # Use simpler cache backend
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'unique-snowflake',
+        }
+    }
