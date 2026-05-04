@@ -13,7 +13,6 @@ Live Demo
 
  User Features
 - **User Authentication** - Register, login, and logout functionality
-- **Dealership Directory** - Browse 500+ verified dealerships
 - **State Filtering** - Find dealerships by state
 - **Customer Reviews** - Read and write dealership reviews
 - **Sentiment Analysis** - Automatic sentiment detection (positive/negative/neutral)
