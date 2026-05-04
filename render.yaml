@@ -1,0 +1,34 @@
+services:
+  # Backend API
+  - type: web
+    name: dealership-backend
+    runtime: python
+    rootDir: server
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py migrate
+    startCommand: gunicorn djangoproj.wsgi:application
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: false
+      - key: ALLOWED_HOSTS
+        value: .onrender.com
+      - key: CORS_ALLOWED_ORIGINS
+        value: https://${FRONTEND_URL}.onrender.com
+      - key: FRONTEND_URL
+        value: dealership-frontend
+
+  # Frontend
+  - type: web
+    name: dealership-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://${BACKEND_URL}.onrender.com
+      - key: BACKEND_URL
+        value: dealership-backend

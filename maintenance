@@ -1,0 +1,11 @@
+# View logs
+docker-compose -f docker-compose.prod.yml logs -f backend
+
+# Restart a service
+docker-compose -f docker-compose.prod.yml restart backend
+
+# Access Django shell
+docker-compose -f docker-compose.prod.yml exec backend python manage.py shell
+
+# Backup database
+docker exec -t car_delership_db_1 pg_dump -U postgres dealership_db > backup.sql

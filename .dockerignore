@@ -1,0 +1,16 @@
+.git
+.gitignore
+README.md
+.env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.sqlite3
+.DS_Store
+node_modules
+npm-debug.log
+.venv
+venv
+.env

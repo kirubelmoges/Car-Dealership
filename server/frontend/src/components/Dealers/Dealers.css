@@ -1,0 +1,782 @@
+table{
+    margin:5px;
+    padding:10px;
+    border: grey solid 1px;
+    width:100%
+  }
+  
+  td{
+    padding:10px;
+    align-self: center;
+    border:solid grey .5px;
+    text-align: center;
+    font-size: large;
+  }
+  
+  .review_panel{
+    display: flex;
+    flex-direction: column;
+    border: solid grey;
+    position: relative;
+    height:7cm;
+    width:6cm;
+    overflow-y: scroll;
+    padding:.3cm;
+    padding-top: 0%;
+    border-radius:10px; 
+    box-shadow: 0px 1px 12px rgba(0, 0, 0, 0.5);
+    margin-bottom: .5cm;
+    justify-content: space-between;
+  }
+
+  .postreview{
+    margin:20px;
+    padding:10px;
+    font-size: larger;
+  }
+
+  th{
+    padding:5px;
+    align-self: center;
+    text-align: center;
+    font-size: large;
+    margin-bottom: 1cm;
+    vertical-align: middle;
+    color: black;
+  }
+
+  .reviews_panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 1cm;
+    overflow-wrap: normal;
+    margin-top: 1cm;
+    align-items: flex-start;
+  }
+
+  .reviewer {
+    margin: 10px; /* Optional margin for spacing */
+    font-style: italic;
+    color: gray;
+    font-size: small;
+}
+
+.review {
+  margin-top: 1.5cm;
+}
+
+.emotion_icon {
+  align-self: center;
+  position:fixed;
+    width:40px;
+    height:40px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;  
+}
+
+.review_icon {
+  width:40px;
+}
+
+.review_icon:hover {
+  transform: scale(1.1);
+  border: solid lightgray;
+}
+
+
+/* Dealers.css - Black/Near-Black Beautiful UI */
+
+.dealer-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 30%, #0a0a0a 0%, #000000 100%);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.dealer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.dealer-header {
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dealer-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff, #9ca3af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.review-button-link {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.review-button-link:hover {
+  transform: scale(1.05);
+}
+
+.review-icon {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+  transition: all 0.2s ease;
+}
+
+.review-icon:hover {
+  filter: drop-shadow(0 4px 12px rgba(255, 255, 255, 0.1));
+}
+
+.dealer-address {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin: 0;
+  padding: 0;
+}
+
+.reviews-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.loading-message,
+.no-reviews-message {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  color: #9ca3af;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.review-card {
+  background: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.review-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3a3a3a, transparent);
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+  background: #0e0e0e;
+}
+
+.sentiment-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.review-text {
+  color: #e5e7eb;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.reviewer-info {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: 'Inter', monospace;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dealer-container {
+    padding: 1rem;
+  }
+  
+  .dealer-title {
+    font-size: 1.75rem;
+  }
+  
+  .review-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .review-card {
+    padding: 1.25rem;
+  }
+  
+  .sentiment-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .review-text {
+    font-size: 0.9rem;
+  }
+  
+  .dealer-address {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar for reviews panel */
+.reviews-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.reviews-panel::-webkit-scrollbar-track {
+  background: #0a0a0a;
+  border-radius: 3px;
+}
+
+.reviews-panel::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+.reviews-panel::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Optional: Add a subtle gradient border to active elements */
+.review-card:focus-within {
+  border-color: #3a3a3a;
+  outline: none;
+}
+
+
+/* Dealers.css - Black/Near-Black Beautiful UI */
+
+.dealers-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 30%, #0a0a0a 0%, #000000 100%);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.dealers-table-container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.dealers-table {
+  width: 100%;
+  background: #0c0c0c;
+  border-radius: 24px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dealers-table thead tr {
+  background: linear-gradient(135deg, #111111 0%, #0a0a0a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dealers-table th {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  color: #e5e7eb;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dealers-table td {
+  padding: 1.25rem 1rem;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.2s ease;
+}
+
+.dealers-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.dealers-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+  transform: scale(1.01);
+}
+
+.dealers-table tbody tr:hover td {
+  color: #ffffff;
+}
+
+/* State Filter Dropdown */
+.state-filter {
+  background: #111111;
+  color: #e5e7eb;
+  border: 1px solid #262626;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+  max-width: 140px;
+}
+
+.state-filter:hover {
+  border-color: #3a3a3a;
+  background: #141414;
+}
+
+.state-filter:focus {
+  outline: none;
+  border-color: #4a4a4a;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
+.state-filter option {
+  background: #0c0c0c;
+  color: #d1d5db;
+}
+
+/* Dealer Link */
+.dealer-link {
+  color: #9ca3af;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.dealer-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.dealer-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #6b7280, #9ca3af);
+  transition: width 0.2s ease;
+}
+
+.dealer-link:hover::after {
+  width: 100%;
+}
+
+/* Review Icon & Link */
+.review-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.review-link:hover {
+  transform: scale(1.1);
+}
+
+.review_icon {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.review-link:hover .review_icon {
+  opacity: 1;
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.1));
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .dealers-table-container {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+  
+  .dealers-table thead {
+    display: none;
+  }
+  
+  .dealers-table,
+  .dealers-table tbody,
+  .dealers-table tr,
+  .dealers-table td {
+    display: block;
+    width: 100%;
+  }
+  
+  .dealers-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    background: #0c0c0c;
+    padding: 0.5rem;
+  }
+  
+  .dealers-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.85rem;
+  }
+  
+  .dealers-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .dealers-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #9ca3af;
+    margin-right: 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .state-filter {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Empty state styling */
+.dealers-table tbody:empty::before {
+  content: "No dealers found";
+  display: block;
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* Custom scrollbar for the page */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Optional: Add loading skeleton animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+
+/* Dealers.css - Black/Near-Black Beautiful UI (Updated with PostReview styles) */
+
+/* Existing styles remain... adding PostReview specific styles below */
+
+/* PostReview Page Styles */
+.postreview-page {
+  min-height: 100vh;
+  background: radial-gradient(circle at 20% 30%, #0a0a0a 0%, #000000 100%);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.postreview-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.postreview-dealer-title {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff, #9ca3af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.postreview-form {
+  background: #0c0c0c;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
+}
+
+.form-label {
+  display: block;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.review-textarea {
+  width: 100%;
+  background: #111111;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  padding: 1rem;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  font-family: 'Inter', monospace;
+  transition: all 0.2s ease;
+  resize: vertical;
+}
+
+.review-textarea:focus {
+  outline: none;
+  border-color: #3b3b3b;
+  background: #0a0a0a;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.03);
+}
+
+.review-textarea::placeholder {
+  color: #2a2a2a;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-input {
+  width: 100%;
+  background: #111111;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  font-family: 'Inter', monospace;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b3b3b;
+  background: #0a0a0a;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.03);
+}
+
+.date-input {
+  cursor: pointer;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.date-input::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+.year-input {
+  width: 200px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.year-input::-webkit-inner-spin-button, 
+.year-input::-webkit-outer-spin-button {
+  opacity: 0.5;
+  background: #2a2a2a;
+}
+
+.year-input:hover::-webkit-inner-spin-button,
+.year-input:hover::-webkit-outer-spin-button {
+  opacity: 1;
+}
+
+.form-select {
+  width: 100%;
+  background: #111111;
+  border: 1px solid #262626;
+  border-radius: 16px;
+  padding: 0.85rem 1rem;
+  color: #f5f5f5;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.form-select:hover {
+  border-color: #3a3a3a;
+  background: #141414;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #4a4a4a;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.05);
+}
+
+.form-select option {
+  background: #0c0c0c;
+  color: #d1d5db;
+  padding: 0.5rem;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.postreview-button {
+  background: linear-gradient(135deg, #1f1f1f 0%, #141414 100%);
+  color: #ffffff;
+  border: 1px solid #333;
+  border-radius: 40px;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.5px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.postreview-button:hover {
+  background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+  transform: translateY(-2px);
+  border-color: #444;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.postreview-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design for PostReview */
+@media (max-width: 768px) {
+  .postreview-container {
+    margin: 1rem auto;
+    padding: 1rem;
+  }
+  
+  .postreview-dealer-title {
+    font-size: 1.5rem;
+  }
+  
+  .postreview-form {
+    padding: 1.5rem;
+  }
+  
+  .year-input {
+    width: 100%;
+  }
+  
+  .postreview-button {
+    max-width: 100%;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

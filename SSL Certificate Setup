@@ -1,0 +1,11 @@
+# Install certbot
+apt-get update
+apt-get install certbot
+
+# Generate SSL certificates
+certbot certonly --standalone -d yourdomain.com -d www.yourdomain.com
+
+# Copy certificates to SSL folder
+mkdir -p ssl
+cp /etc/letsencrypt/live/yourdomain.com/fullchain.pem ssl/cert.pem
+cp /etc/letsencrypt/live/yourdomain.com/privkey.pem ssl/key.pem
